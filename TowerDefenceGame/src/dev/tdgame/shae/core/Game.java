@@ -20,6 +20,9 @@ import static org.lwjgl.glfw.GLFW.glfwSetWindowShouldClose;
 import static org.lwjgl.glfw.GLFW.glfwSwapBuffers;
 import static org.lwjgl.glfw.GLFW.glfwTerminate;
 
+import java.awt.Point;
+import java.util.HashMap;
+
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWCursorPosCallback;
 import org.lwjgl.glfw.GLFWErrorCallback;
@@ -33,6 +36,7 @@ import dev.tdgame.shae.entity.Oil;
 import dev.tdgame.shae.entity.Player;
 import dev.tdgame.shae.entity.Spawner;
 import dev.tdgame.shae.gfx.Window;
+import dev.tdgame.shae.pathfinding.Node;
 import dev.tdgame.shae.render.Renderer;
 import dev.tdgame.shae.render.Texture;
 
@@ -64,6 +68,8 @@ public class Game {
 	private GLFWCursorPosCallback cpCallback;
 
 	private GLFWMouseButtonCallback mbCallback;
+	
+	public static HashMap<Integer, Node> nodes = new HashMap<Integer, Node>();
 
 	public static BulletWand bw;
 
