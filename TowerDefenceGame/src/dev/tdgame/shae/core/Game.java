@@ -79,7 +79,6 @@ public class Game {
 
 	// test code area
 
-	private Texture floor;
 
 	// end test code area
 
@@ -115,8 +114,6 @@ public class Game {
 		oilCan = new Oil();
 		oilCan.init();
 
-		floor = Texture.loadTexture("res/floor.png");
-		floor.bind();
 
 		bw = new BulletWand(r, 10, 1);
 		
@@ -170,13 +167,6 @@ public class Game {
 
 		r.begin();
 
-		floor.bind();
-
-		for (int i = 0; i < width; i += 32) {
-			for (int j = 0; j < height; j += 32) {
-				r.drawTexture(floor, i, j);
-			}
-		}
 
 		r.end();
 
