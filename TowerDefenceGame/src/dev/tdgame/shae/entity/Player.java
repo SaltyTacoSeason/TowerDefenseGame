@@ -14,7 +14,7 @@ public class Player {
 	}
 	
 	public void init() {
-		t = Texture.loadTexture("res/player.png");
+		t = Texture.loadTexture("/player.png");
 		t.bind();
 	}
 	

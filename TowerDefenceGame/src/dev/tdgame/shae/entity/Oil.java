@@ -9,7 +9,7 @@ public class Oil {
 	public Texture t;
 	
 	public void init() {
-		t = Texture.loadTexture("res/oil.png");
+		t = Texture.loadTexture("/oil.png");
 		t.bind();
 	}
 	

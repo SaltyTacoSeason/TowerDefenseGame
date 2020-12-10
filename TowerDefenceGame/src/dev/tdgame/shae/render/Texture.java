@@ -159,8 +159,9 @@ public class Texture {
             IntBuffer comp = stack.mallocInt(1);
 
             /* Load image */
+            String totalpath = Texture.class.getResource(path).getPath();
             stbi_set_flip_vertically_on_load(true);
-            image = stbi_load(path, w, h, comp, 4);
+            image = stbi_load(totalpath, w, h, comp, 4);
             if (image == null) {
                 throw new RuntimeException("Failed to load a texture file!");
             }

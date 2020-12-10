@@ -263,8 +263,8 @@ public class Renderer {
         /* Load shaders */
         Shader vertexShader, fragmentShader;
         if (Game.isDefaultContext()) {
-            vertexShader = Shader.loadShader(GL_VERTEX_SHADER, "res/shader.vert");
-            fragmentShader = Shader.loadShader(GL_FRAGMENT_SHADER, "res/shader.frag");
+            vertexShader = Shader.loadShader(GL_VERTEX_SHADER, "/shader.vert");
+            fragmentShader = Shader.loadShader(GL_FRAGMENT_SHADER, "/shader.frag");
         } else {
             vertexShader = Shader.loadShader(GL_VERTEX_SHADER, "resources/legacy.vert");
             fragmentShader = Shader.loadShader(GL_FRAGMENT_SHADER, "resources/legacy.frag");

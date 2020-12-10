@@ -27,7 +27,7 @@ public class Enemy {
 	}
 
 	public void init() {
-		t = Texture.loadTexture("res/enemy.png");
+		t = Texture.loadTexture("/enemy.png");
 		t.bind();
 		bounds = new Rectangle(x, y, t.getWidth(), t.getHeight());
 		path = new Path();

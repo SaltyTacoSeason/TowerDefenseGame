@@ -36,7 +36,7 @@ public class Bullet {
     	rand = new Random();
         
         texture = new Texture();
-        texture = Texture.loadTexture("res/bullet.png");
+        texture = Texture.loadTexture("/bullet.png");
         
         this.renderer = renderer;
         

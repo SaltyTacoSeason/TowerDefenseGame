@@ -50,9 +50,13 @@ public class Shader {
 	}
 	
 	public static Shader loadShader(int type, String path) {
-        StringBuilder builder = new StringBuilder();
+		StringBuilder builder = new StringBuilder();
+       
+		System.out.println(Shader.class.getResource(path).getPath());
 
-        try (InputStream in = new FileInputStream(path);
+        String totalpath = Shader.class.getResource(path).getPath();
+        
+        try (InputStream in = new FileInputStream(totalpath);
              BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
             String line;
             while ((line = reader.readLine()) != null) {
