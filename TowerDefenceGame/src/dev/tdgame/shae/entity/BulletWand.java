@@ -43,11 +43,11 @@ public class BulletWand {
 					int delta_x = (int) (Game.mouseX - Game.p.x - 4);
 					int delta_y = (int) (Game.mouseY - Game.p.y - 16);
 					float theta_radians = (float) Math.atan2(delta_y, delta_x);
-					float inac = (rand.nextFloat() - 0.5f) / 12;
+					float inac = (rand.nextFloat() - 0.5f) / 24;
 					bullet.add(new Bullet(theta_radians + inac, 100));
 					bullet.get(bullet.size() - 1).posX = Game.p.x + 4;
 					bullet.get(bullet.size() - 1).posY = Game.p.y + 16;
-					if(shots >= 3) {
+					if(shots > 3) {
 						bullet.get(bullet.size() - 1).posX += (rand.nextFloat() - 0.5f) * 12;
 						bullet.get(bullet.size() - 1).posY += (rand.nextFloat() - 0.5f) * 12;
 					}

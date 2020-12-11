@@ -118,7 +118,7 @@ public class Game {
 		oilCan.init();
 
 
-		bw = new BulletWand(r, 1000, 1);
+		bw = new BulletWand(r, 1, 1);
 		
 		es = new Spawner();
 		es.init();

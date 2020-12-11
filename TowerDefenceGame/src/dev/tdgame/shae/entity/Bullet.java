@@ -36,7 +36,7 @@ public class Bullet {
         texture = new Texture();
         texture = Texture.loadTexture("/bullet.png");
                 
-        float inac = (rand.nextFloat() - 0.5f) / 24;
+        float inac = (rand.nextFloat() - 0.5f) / 48;
         
         this.angle = angle + inac;
         
