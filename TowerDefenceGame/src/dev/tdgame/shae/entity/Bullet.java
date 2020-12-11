@@ -20,9 +20,7 @@ public class Bullet {
     double velocityX, velocityY;
     
     public int time = 0;
-    
-    private Renderer renderer;
-    
+        
     private Texture texture;
     
     public Rectangle r;
@@ -31,15 +29,13 @@ public class Bullet {
     
     public float damage;
     
-    public Bullet(float angle, Renderer renderer, float damage) {
+    public Bullet(float angle, float damage) {
     	
     	rand = new Random();
         
         texture = new Texture();
         texture = Texture.loadTexture("/bullet.png");
-        
-        this.renderer = renderer;
-        
+                
         float inac = (rand.nextFloat() - 0.5f) / 24;
         
         this.angle = angle + inac;
@@ -71,11 +67,14 @@ public class Bullet {
         
     }
 
-    public void render() {  
-        renderer.begin();
+    public void render(Renderer r) {  
+//        renderer.begin();
         texture.bind();
-        renderer.drawTexture(texture, posX, posY);
-        renderer.end();
+        r.drawTexture(texture, posX, posY);
+//        renderer.end();
     }
     
+    public void delete() {
+    	texture.delete();
+    }
 }

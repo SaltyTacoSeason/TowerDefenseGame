@@ -20,7 +20,6 @@ import static org.lwjgl.glfw.GLFW.glfwSetWindowShouldClose;
 import static org.lwjgl.glfw.GLFW.glfwSwapBuffers;
 import static org.lwjgl.glfw.GLFW.glfwTerminate;
 
-import java.awt.Point;
 import java.util.HashMap;
 
 import org.lwjgl.glfw.GLFW;
@@ -38,7 +37,6 @@ import dev.tdgame.shae.entity.Spawner;
 import dev.tdgame.shae.gfx.Window;
 import dev.tdgame.shae.pathfinding.Node;
 import dev.tdgame.shae.render.Renderer;
-import dev.tdgame.shae.render.Texture;
 
 public class Game {
 
@@ -76,6 +74,8 @@ public class Game {
 	public static boolean rightMouseDown = false, leftMouseDown = false;
 
 	public Spawner es;
+	
+	public World m;
 
 	// test code area
 
@@ -110,12 +110,15 @@ public class Game {
 
 		p = new Player(width / 2 - 16, height / 2 - 16);
 		p.init();
+		
+		m = new World();
+		m.init();
 
 		oilCan = new Oil();
 		oilCan.init();
 
 
-		bw = new BulletWand(r, 10, 1);
+		bw = new BulletWand(r, 1000, 1);
 		
 		es = new Spawner();
 		es.init();
@@ -165,10 +168,7 @@ public class Game {
 	private void render() {
 		r.clear();
 
-		r.begin();
-
-
-		r.end();
+		m.render(r);
 
 		oilCan.render(r);
 		

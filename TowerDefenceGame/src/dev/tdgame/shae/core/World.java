@@ -1,12 +1,34 @@
 package dev.tdgame.shae.core;
 
 import dev.tdgame.shae.pathfinding.Node;
+import dev.tdgame.shae.render.Renderer;
 
 public class World {
-	
-	public Node[] map;
-	
+
+	public Node[][] map;
+	public int mapWidth;
+
 	public void init() {
-		map = new Node[Game.width / 32 * Game.height / 32];
+		System.out.println((int)Math.ceil(Game.height / 32)+1);
+		map = new Node[(int)(Game.width / 32)][(int)(Game.height / 32)+1];
+		mapWidth = (int)(Game.width / 32);
+
+		for (int j = 0; j < map[0].length; j++) {
+			for (int i = 0; i < map.length; i++) {
+				map[i][j] = new Node(i * 32, j * 32);
+				map[i][j].init("/floor.png");
+			}
+		}
+	}
+
+	public void render(Renderer r) {
+		r.begin();
+		for (int j = 0; j < map[0].length; j++) {
+			for (int i = 0; i < map.length; i++) {
+				map[i][j].render(r);
+//				System.out.println(" loops, and this space is " + n);
+			}
+		}
+		r.end();
 	}
 }

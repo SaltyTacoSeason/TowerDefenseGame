@@ -1,5 +1,6 @@
 package dev.tdgame.shae.pathfinding;
 
+import dev.tdgame.shae.render.Renderer;
 import dev.tdgame.shae.render.Texture;
 
 public class Node {
@@ -25,7 +26,10 @@ public class Node {
 		
 	}
 	
-	public void render() {
+	public void render(Renderer r) {
+		t.bind();
+		
+		r.drawTexture(t, x, y);
 		
 	}
 }

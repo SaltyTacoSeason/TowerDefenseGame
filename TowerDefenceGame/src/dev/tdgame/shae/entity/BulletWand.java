@@ -29,9 +29,11 @@ public class BulletWand {
 	
 	public void render(Renderer r) {
 		this.r = r;
+		r.begin();
 		for(Bullet b : bullet) {
-			b.render();
+			b.render(r);
 		}
+		r.end();
 	}
 	
 	public void tick() {
@@ -42,7 +44,7 @@ public class BulletWand {
 					int delta_y = (int) (Game.mouseY - Game.p.y - 16);
 					float theta_radians = (float) Math.atan2(delta_y, delta_x);
 					float inac = (rand.nextFloat() - 0.5f) / 12;
-					bullet.add(new Bullet(theta_radians + inac, r, 100));
+					bullet.add(new Bullet(theta_radians + inac, 100));
 					bullet.get(bullet.size() - 1).posX = Game.p.x + 4;
 					bullet.get(bullet.size() - 1).posY = Game.p.y + 16;
 					if(shots >= 3) {
@@ -59,7 +61,7 @@ public class BulletWand {
 			if((bullet.get(i).posX > Game.width) || 
 					(bullet.get(i).posY > Game.height) || 
 					(bullet.get(i).posX < 0) || 
-					(bullet.get(i).posY < 0)) {bullet.remove(i);};
+					(bullet.get(i).posY < 0)) {bullet.get(i).delete();bullet.remove(i);};
 		}
 		
 //		l++;
