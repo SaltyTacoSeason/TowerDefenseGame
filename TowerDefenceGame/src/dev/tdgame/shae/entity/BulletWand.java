@@ -30,6 +30,9 @@ public class BulletWand {
 	public void render(Renderer r) {
 		this.r = r;
 		r.begin();
+		if(bullet.size() > 0) {
+			bullet.get(0).getTexture().bind();
+		}
 		for(Bullet b : bullet) {
 			b.render(r);
 		}

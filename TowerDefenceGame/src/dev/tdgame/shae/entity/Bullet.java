@@ -69,12 +69,16 @@ public class Bullet {
 
     public void render(Renderer r) {  
 //        renderer.begin();
-        texture.bind();
+//        texture.bind();
         r.drawTexture(texture, posX, posY);
 //        renderer.end();
     }
     
     public void delete() {
     	texture.delete();
+    }
+    
+    public Texture getTexture() {
+    	return texture;
     }
 }

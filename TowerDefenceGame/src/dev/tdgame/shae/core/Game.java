@@ -20,6 +20,7 @@ import static org.lwjgl.glfw.GLFW.glfwSetWindowShouldClose;
 import static org.lwjgl.glfw.GLFW.glfwSwapBuffers;
 import static org.lwjgl.glfw.GLFW.glfwTerminate;
 
+import java.awt.Point;
 import java.util.HashMap;
 
 import org.lwjgl.glfw.GLFW;
@@ -34,7 +35,6 @@ import dev.tdgame.shae.entity.BulletWand;
 import dev.tdgame.shae.entity.Oil;
 import dev.tdgame.shae.entity.Player;
 import dev.tdgame.shae.entity.Spawner;
-import dev.tdgame.shae.entity.Tile;
 import dev.tdgame.shae.gfx.Window;
 import dev.tdgame.shae.pathfinding.Node;
 import dev.tdgame.shae.render.Renderer;
@@ -76,7 +76,7 @@ public class Game {
 	
 	public World m;
 	
-	public static HashMap<Integer, Node> nodes = new HashMap<Integer, Node>();
+	public static HashMap<Point, Node> nodes = new HashMap<Point, Node>();
 
 	// test code area
 
@@ -110,8 +110,8 @@ public class Game {
 		
 		for (int j = 0; j < height / 32 + 1; j++) {
 			for (int i = 0; i < width / 32; i++) {
-				nodes.put(j * iw + i, new Node(i, j));
-				System.out.println("node: " + i + ", " + j + " is: " + nodes.get(i*iw+i));
+				nodes.put(new Point(i, j), new Node(i, j));
+				System.out.println("node: " + i + ", " + j + " is: " + nodes.get(new Point(i, j)));
 			}
 		}
 
@@ -128,7 +128,7 @@ public class Game {
 		oilCan.init();
 
 
-		bw = new BulletWand(r, 10, 1);
+		bw = new BulletWand(r, 266, 1);
 		
 		es = new Spawner();
 		es.init();
