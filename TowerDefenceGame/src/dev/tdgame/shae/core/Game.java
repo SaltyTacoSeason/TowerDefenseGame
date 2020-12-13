@@ -34,6 +34,7 @@ import dev.tdgame.shae.entity.BulletWand;
 import dev.tdgame.shae.entity.Oil;
 import dev.tdgame.shae.entity.Player;
 import dev.tdgame.shae.entity.Spawner;
+import dev.tdgame.shae.entity.Tile;
 import dev.tdgame.shae.gfx.Window;
 import dev.tdgame.shae.pathfinding.Node;
 import dev.tdgame.shae.render.Renderer;
@@ -67,8 +68,6 @@ public class Game {
 
 	private GLFWMouseButtonCallback mbCallback;
 	
-	public static HashMap<Integer, Node> nodes = new HashMap<Integer, Node>();
-
 	public static BulletWand bw;
 
 	public static boolean rightMouseDown = false, leftMouseDown = false;
@@ -76,6 +75,8 @@ public class Game {
 	public Spawner es;
 	
 	public World m;
+	
+	public static HashMap<Integer, Node> nodes = new HashMap<Integer, Node>();
 
 	// test code area
 
@@ -104,6 +105,15 @@ public class Game {
 		window = new Window(width, height, "TDGame", true);
 
 		setCallback();
+		
+		int iw = width / 32;
+		
+		for (int j = 0; j < height / 32 + 1; j++) {
+			for (int i = 0; i < width / 32; i++) {
+				nodes.put(j * iw + i, new Node(i, j));
+				System.out.println("node: " + i + ", " + j + " is: " + nodes.get(i*iw+i));
+			}
+		}
 
 		r = new Renderer();
 		r.init();
@@ -118,7 +128,7 @@ public class Game {
 		oilCan.init();
 
 
-		bw = new BulletWand(r, 1, 1);
+		bw = new BulletWand(r, 10, 1);
 		
 		es = new Spawner();
 		es.init();

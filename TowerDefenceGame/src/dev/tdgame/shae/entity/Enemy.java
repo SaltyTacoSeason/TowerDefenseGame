@@ -3,7 +3,7 @@ package dev.tdgame.shae.entity;
 import java.awt.Rectangle;
 
 import dev.tdgame.shae.core.Game;
-import dev.tdgame.shae.pathfinding.Node;
+//import dev.tdgame.shae.pathfinding.Node;
 import dev.tdgame.shae.pathfinding.Path;
 import dev.tdgame.shae.render.Renderer;
 import dev.tdgame.shae.render.Texture;
@@ -31,7 +31,7 @@ public class Enemy {
 		t.bind();
 		bounds = new Rectangle(x, y, t.getWidth(), t.getHeight());
 		path = new Path();
-		path.current = new Node(x, y);
+//		path.current = new Node(x, y);
 	}
 
 	public void tick() {

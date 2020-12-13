@@ -1,35 +1,10 @@
 package dev.tdgame.shae.pathfinding;
 
-import dev.tdgame.shae.render.Renderer;
-import dev.tdgame.shae.render.Texture;
-
 public class Node {
-	public float gScore;
-	public float hScore;
-	public float fScore;
+	int x, y;
 	
-	public float x, y;
-	
-	public boolean passable;
-	public Texture t;
-	
-	public Node(float x, float y) {
+	public Node(int x, int y) {
 		this.x = x;
 		this.y = y;
-	}
-	
-	public void init(String path) {
-		t = Texture.loadTexture(path);
-	}
-	
-	public void tick(float delta) {
-		
-	}
-	
-	public void render(Renderer r) {
-		t.bind();
-		
-		r.drawTexture(t, x, y);
-		
 	}
 }

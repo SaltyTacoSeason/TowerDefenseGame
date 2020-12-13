@@ -1,10 +1,10 @@
 package dev.tdgame.shae.pathfinding;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Path {
-	public ArrayList<Node> open = new ArrayList<Node>();
-	public ArrayList<Node> closed = new ArrayList<Node>();
+	public HashMap<Integer, Node> open = new HashMap<Integer, Node>();
+	public HashMap<Integer, Node> closed = new HashMap<Integer, Node>();
 	public Node current;
 	public Node goal;
 	
