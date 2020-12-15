@@ -105,13 +105,10 @@ public class Game {
 		window = new Window(width, height, "TDGame", true);
 
 		setCallback();
-		
-		int iw = width / 32;
-		
+				
 		for (int j = 0; j < height / 32 + 1; j++) {
 			for (int i = 0; i < width / 32; i++) {
 				nodes.put(new Point(i, j), new Node(i, j));
-				System.out.println("node: " + i + ", " + j + " is: " + nodes.get(new Point(i, j)));
 			}
 		}
 
@@ -128,7 +125,7 @@ public class Game {
 		oilCan.init();
 
 
-		bw = new BulletWand(r, 266, 1);
+		bw = new BulletWand(r, 26, 1);
 		
 		es = new Spawner();
 		es.init();
