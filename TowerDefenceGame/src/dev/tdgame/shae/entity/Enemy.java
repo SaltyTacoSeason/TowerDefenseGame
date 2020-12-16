@@ -38,11 +38,11 @@ public class Enemy {
 
 	public void tick() {
 		if (!dead) {
-			path.tracePath(Game.nodes.get(new Point((int)Math.floor(x / 32), (int)Math.floor(y / 32))), Game.p.pNode);
 			if(!(path.path.size() == 0)) {
 				x = path.path.get(0).x * 32;
+				y = path.path.get(0).y * 32;
 				path.path.remove(0);
-			}
+			} else path.tracePath(Game.nodes.get(new Point((int)Math.floor(x / 32), (int)Math.floor(y / 32))), Game.p.pNode);
 			System.out.println(path.path.size());
 			
 			bounds.x = x;
