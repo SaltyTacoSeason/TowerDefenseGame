@@ -4,7 +4,7 @@ public class Node {
 	public int x, y;
 	public int gCost, hCost;
 	public Node parent;
-	private boolean traversable;
+	private boolean traversable = true;
 	
 	public Node(int x, int y) {
 		this.x = x;

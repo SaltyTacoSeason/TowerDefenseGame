@@ -1,12 +1,16 @@
 package dev.tdgame.shae.entity;
 
+import java.awt.Point;
+
 import dev.tdgame.shae.core.Game;
+import dev.tdgame.shae.pathfinding.Node;
 import dev.tdgame.shae.render.Renderer;
 import dev.tdgame.shae.render.Texture;
 
 public class Player {
 	public int x, y, vx = 0, vy = 0;
 	public Texture t;		
+	public Node pNode;
 		
 	public Player(int x, int y)	{
 		this.x = x;
@@ -33,6 +37,8 @@ public class Player {
 	
 	public void tick(float delta) {
 		move();
+		pNode = Game.nodes.get(new Point((int)Math.floor(x / 32), (int)Math.floor(y / 32)));
+		System.out.println(pNode.x + "   " + pNode.y);
 	}
 	
 	public void move() {

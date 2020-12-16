@@ -10,32 +10,38 @@ import dev.tdgame.shae.render.Renderer;
 public class Spawner {
 
 	public ArrayList<Enemy> enemies = new ArrayList<Enemy>();
-	
+
+	// test code
+	private boolean cse = true;
+
 	public void init() {
-		
+
 	}
 
 	public void render(Renderer r) {
-		
+
 		for (Enemy e : enemies)
 			e.render(r);
-		
+
 	}
-	
+
 	public void tick() {
 		for (int i = 0; i < enemies.size(); i++) {
 			enemies.get(i).tick();
-			if(enemies.get(i).dead) {
+			if (enemies.get(i).dead) {
 				enemies.get(i).dispose();
 				enemies.remove(i);
-			}	
+			}
 		}
 
 		// test code
 		if (Game.keys[GLFW_KEY_SPACE]) {
-			enemies.add(new Enemy((int) Game.mouseX, (int) Game.mouseY));
-			enemies.get(enemies.size() - 1).init();
-		}
+			if (cse) {
+				enemies.add(new Enemy((int) Game.mouseX, (int) Game.mouseY));
+				enemies.get(enemies.size() - 1).init();
+				cse = false;
+			}
+		} else cse = true;
 	}
 
 	public void dispose() {

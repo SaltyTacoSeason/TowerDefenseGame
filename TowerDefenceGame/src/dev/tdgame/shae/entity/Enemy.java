@@ -1,8 +1,10 @@
 package dev.tdgame.shae.entity;
 
+import java.awt.Point;
 import java.awt.Rectangle;
 
 import dev.tdgame.shae.core.Game;
+import dev.tdgame.shae.pathfinding.Node;
 //import dev.tdgame.shae.pathfinding.Node;
 import dev.tdgame.shae.pathfinding.Path;
 import dev.tdgame.shae.render.Renderer;
@@ -36,6 +38,13 @@ public class Enemy {
 
 	public void tick() {
 		if (!dead) {
+			path.tracePath(Game.nodes.get(new Point((int)Math.floor(x / 32), (int)Math.floor(y / 32))), Game.p.pNode);
+			if(!(path.path.size() == 0)) {
+				x = path.path.get(0).x * 32;
+				path.path.remove(0);
+			}
+			System.out.println(path.path.size());
+			
 			bounds.x = x;
 			bounds.y = y;
 
