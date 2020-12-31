@@ -50,7 +50,7 @@ public class Game {
 
 	public static Player p;
 
-	private Oil oilCan;
+	public static Oil oilCan;
 
 	private boolean running;
 
@@ -106,8 +106,8 @@ public class Game {
 
 		setCallback();
 				
-		for (int j = 0; j < height / 32 + 1; j++) {
-			for (int i = 0; i < width / 32; i++) {
+		for (int j = 0; j <= (height / 32); j++) {
+			for (int i = 0; i <= (width / 32); i++) {
 				nodes.put(new Point(i, j), new Node(i, j));
 			}
 		}

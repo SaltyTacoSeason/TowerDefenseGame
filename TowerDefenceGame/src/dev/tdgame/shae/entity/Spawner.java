@@ -1,7 +1,5 @@
 package dev.tdgame.shae.entity;
 
-import static org.lwjgl.glfw.GLFW.GLFW_KEY_SPACE;
-
 import java.util.ArrayList;
 
 import dev.tdgame.shae.core.Game;
@@ -11,8 +9,8 @@ public class Spawner {
 
 	public ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 
-	// test code
-	private boolean cse = true;
+	private int ticks = 0;
+	private int chosenCorner = 0;
 
 	public void init() {
 
@@ -34,14 +32,34 @@ public class Spawner {
 			}
 		}
 
-		// test code
-		if (Game.keys[GLFW_KEY_SPACE]) {
-			if (cse) {
-				enemies.add(new Enemy((int) Game.mouseX, (int) Game.mouseY));
+		if (ticks == 75) {
+			switch(chosenCorner) {
+			case 0:
+				enemies.add(new Enemy(0, 0));
 				enemies.get(enemies.size() - 1).init();
-				cse = false;
+				ticks = 0;
+				chosenCorner = 1;
+				break;
+			case 1:
+				enemies.add(new Enemy(0, Game.height));
+				enemies.get(enemies.size() - 1).init();
+				ticks = 0;
+				chosenCorner = 2;
+				break;
+			case 2:
+				enemies.add(new Enemy(Game.width, Game.height));
+				enemies.get(enemies.size() - 1).init();
+				ticks = 0;
+				chosenCorner = 3;
+				break;
+			case 3:
+				enemies.add(new Enemy(Game.width, 0));
+				enemies.get(enemies.size() - 1).init();
+				ticks = 0;
+				chosenCorner = 0;
+				break;
 			}
-		} else cse = true;
+		} else ticks++;
 	}
 
 	public void dispose() {

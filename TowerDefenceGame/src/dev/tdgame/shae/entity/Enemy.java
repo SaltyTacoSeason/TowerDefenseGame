@@ -22,6 +22,10 @@ public class Enemy {
 	private Rectangle bounds;
 	
 	private Path path;
+	
+	public Node eNode;
+	
+	public Node tNode;
 
 	public Enemy(int x, int y) {
 		this.x = x;
@@ -38,11 +42,15 @@ public class Enemy {
 
 	public void tick() {
 		if (!dead) {
-			if(!(path.path.size() == 0)) {
-				x = path.path.get(0).x * 32;
-				y = path.path.get(0).y * 32;
-				path.path.remove(0);
-			} else path.tracePath(Game.nodes.get(new Point((int)Math.floor(x / 32), (int)Math.floor(y / 32))), Game.p.pNode);
+			eNode = Game.nodes.get(new Point((int)Math.floor(x / 32), (int)Math.floor(y / 32)));
+			if(path.getDistance(eNode, Game.oilCan.oNode) >= path.getDistance(eNode, Game.p.pNode))
+				tNode = Game.oilCan.oNode;
+			else tNode = Game.p.pNode;
+			if(path.path.size() != 0) {
+				move();
+				if(eNode == path.path.get(0))
+					path.path.remove(0);
+			} else path.tracePath(eNode, tNode);
 			System.out.println(path.path.size());
 			
 			bounds.x = x;
@@ -74,5 +82,25 @@ public class Enemy {
 
 	public void dispose() {
 		t.delete();
+	}
+	
+	public void move() {
+		int nx = path.path.get(0).x * 32, ny = path.path.get(0).y * 32;
+		
+		if(x - 4 > nx) {
+			x -= 4;
+		} else if (x > nx) x = nx;
+		
+		if(x + 4 <= nx) {
+			x += 4;
+		} else if (x <= nx) x = nx;
+		
+		if(y - 4 > ny) {
+			y -= 4;
+		} else if (y > ny) y = ny;
+		
+		if(y + 4 <= ny) {
+			y += 4;
+		} else if (y <= ny) y = ny;
 	}
 }
