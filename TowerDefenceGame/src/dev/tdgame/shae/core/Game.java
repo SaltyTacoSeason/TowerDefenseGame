@@ -74,7 +74,7 @@ public class Game {
 
 	public Spawner es;
 	
-	public World m;
+	public static World m;
 	
 	public static HashMap<Point, Node> nodes = new HashMap<Point, Node>();
 
@@ -105,6 +105,9 @@ public class Game {
 		window = new Window(width, height, "TDGame", true);
 
 		setCallback();
+		
+		m = new World();
+		m.init();
 				
 		for (int j = 0; j <= (height / 32); j++) {
 			for (int i = 0; i <= (width / 32); i++) {
@@ -117,9 +120,6 @@ public class Game {
 
 		p = new Player(width / 2 - 16, height / 2 - 16);
 		p.init();
-		
-		m = new World();
-		m.init();
 
 		oilCan = new Oil();
 		oilCan.init();
