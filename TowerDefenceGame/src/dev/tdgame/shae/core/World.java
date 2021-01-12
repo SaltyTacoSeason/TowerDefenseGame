@@ -16,6 +16,8 @@ public class World {
 				map[i][j].init(0);
 			}
 		}
+		
+		map[4][6].init(1);
 	}
 
 	public void render(Renderer r) {

@@ -19,6 +19,10 @@ public class Tile {
 		switch(id) {
 		case 0:
 			t = Texture.loadTexture("/floor.png");
+			break;
+		case 1: 
+			t = Texture.loadTexture("/player.png");
+			break;
 		}
 	}
 	
@@ -26,6 +30,6 @@ public class Tile {
 		t.bind();
 		
 		r.drawTexture(t, x, y);
-		r.flush();
+//		r.flush();
 	}
 }
