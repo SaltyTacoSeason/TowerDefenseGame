@@ -13,7 +13,7 @@ public class Node {
 		this.y = y;
 		
 		traversable = Game.m.map[x][y].passable;
-		System.out.println(traversable);
+		System.out.println(traversable + " x: " + x + " y: " + y);
 	}
 	
 	public int fCost() {

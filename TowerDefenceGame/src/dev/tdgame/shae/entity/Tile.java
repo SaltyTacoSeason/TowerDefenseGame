@@ -21,7 +21,8 @@ public class Tile {
 			t = Texture.loadTexture("/floor.png");
 			break;
 		case 1: 
-			t = Texture.loadTexture("/player.png");
+			t = Texture.loadTexture("/SolidTile.png");
+			passable = false;
 			break;
 		}
 	}
@@ -30,6 +31,6 @@ public class Tile {
 		t.bind();
 		
 		r.drawTexture(t, x, y);
-//		r.flush();
+		r.flush();
 	}
 }

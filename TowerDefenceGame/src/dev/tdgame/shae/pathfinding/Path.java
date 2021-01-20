@@ -26,14 +26,12 @@ public class Path {
 			for (Node n : open) {
 				if (n.fCost() <= current.fCost()) {
 					current = n;
-					System.out.println("Node: " + n + " is the current node");
 				}
 			}
 
 			open.remove(current);
 			closed.add(current);
 			
-			System.out.println("open size: " + open.size());
 
 			if (current.equals(goal)) {
 				// trace path back
@@ -51,7 +49,6 @@ public class Path {
 				}
 				
 				int newMovementCostToNeighbour = current.gCost + getDistance(current, neighbour);
-				System.out.println("move cost: " + newMovementCostToNeighbour);
 				
 				if(neighbour.gCost == 0) {
 					neighbour.gCost = newMovementCostToNeighbour;
